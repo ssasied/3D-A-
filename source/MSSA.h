@@ -61,10 +61,10 @@ namespace AStar
         ///zmieniona dla mojego podjescia z wektorem 3 wymiarowym jako przestrzen
         void setWorldSize(coords worldSize_);
 
-        /// moja funkcja do ³adowania przeszkód z pliku
+        /// moja funkcja do ladowania przeszkód z pliku
         void load(std::string fname);
         
-        ///wyrzucowa funkcja bo sprawienie aby ona dzia³a³a w 3 wymiarach jest zbyt pracoch³onne
+        ///wyrzucowa funkcja bo sprawienie aby ona dzialala w 3 wymiarach jest zbyt pracoch³onne
         //void setDiagonalMovement(bool enable_);
 
         void setHeuristic(HeuristicFunction heuristic_);
