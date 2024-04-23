@@ -4,6 +4,7 @@ Modyfikacja https://github.com/daancode/a-star/ dla 3 wymiaru
 wizualizacja sciezki na grafie za pomoca skryptu w pythnonie.
 uzycie:
 ''' 
+
 #include <iostream>
 #include <fstream>
 #include <string>
