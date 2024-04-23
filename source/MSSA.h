@@ -1,3 +1,4 @@
+/// pozmieniany kod od tego pana:
 /*
     Copyright (c) 2015, Damian Barczynski <daan.net@wp.eu>
     Following tool is licensed under the terms and conditions of the ISC license.
@@ -63,10 +64,10 @@ namespace AStar
         ///zmieniona dla mojego podjescia z wektorem 3 wymiarowym jako przestrzen
         void setWorldSize(coords worldSize_);
 
-        /// moja funkcja do ³adowania przeszkód z pliku
+        /// moja funkcja do Â³adowania przeszkÃ³d z pliku
         void load(std::string fname);
         
-        ///wyrzucowa funkcja bo sprawienie aby ona dzia³a³a w 3 wymiarach jest zbyt pracoch³onne
+        ///wyrzucowa funkcja bo sprawienie aby ona dziaÂ³aÂ³a w 3 wymiarach jest zbyt pracochÂ³onne
         //void setDiagonalMovement(bool enable_);
 
         void setHeuristic(HeuristicFunction heuristic_);
