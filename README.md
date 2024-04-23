@@ -3,7 +3,8 @@ Modyfikacja https://github.com/daancode/a-star/ dla 3 wymiaru
 
 wizualizacja sciezki na grafie za pomoca skryptu w pythnonie.
 uzycie:
-''' 
+
+''' c++
 
 #include <iostream>
 #include <fstream>
@@ -17,15 +18,11 @@ int main()
     AStar::Generator generator;
     int size = 20;
     generator.setWorldSize({ size, size, size});
-
     std::string obstaclesFile = "przeszkody.txt";
     generator.load(obstaclesFile);
-
     generator.setHeuristic(AStar::Heuristic::manhattan);
-
     std::cout << "Generate path ... \n";
     auto path = generator.findPath({ 1, 3, 0 }, { 1, 19 ,5 });
-
     std::string pathFile = "trasa.txt";
     std::ofstream file(pathFile);
     for (auto& coordinate : path) {
