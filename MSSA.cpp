@@ -195,7 +195,6 @@ AStar::CoordinateList AStar::Generator::findPath(coords source_, coords target_)
     CoordinateList path;
     while (current != nullptr) {
         path.push_back(current->coordinates);
-        std::cout << current->G<<'\n';
         current = current->parent;
     }
 
