@@ -1,4 +1,4 @@
-﻿/// to jest moja zmiana dla https://github.com/daancode/a-star/
+﻿/// to jest moja zmiana dla https://github.com/daancode/a-star/ 
 /// dodaje 3 wymiar a także próbuje zaimplementowac pare optymalizacji
 /// są to optymalizacje czasowe, tym samym zajmują ZNACZNIE więcej pamięci
 /// (głównie przez użycie wektora 3 wymiarowego jako przestrzeni z przeszkodami 
