@@ -32,6 +32,8 @@ int main()
         file << coordinate.x << "," << coordinate.y <<"," <<coordinate.z<< "\n";
     }
     file.close();
+
+    /// uruchomienie skryptu wizualizujacego graf
     std::string command = "py displayGraph.py --size "+std::to_string(size)+" "+std::to_string(size) + " "+std::to_string(size) + " " + obstaclesFile + " " + pathFile;
     int returnCode = system(command.c_str());
     if (returnCode != 0) {
