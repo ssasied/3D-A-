@@ -1,4 +1,4 @@
-#napisane przy pomocy chatgpt
+#napisane przy pomocy chatgpt 
 
 import argparse
 import matplotlib.pyplot as plt
