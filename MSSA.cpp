@@ -1,4 +1,4 @@
-#include "MSSA.h"
+#include "source/MSSA.h"
 #include <algorithm>
 #include <iostream>
 #include <fstream>
@@ -21,9 +21,9 @@ AStar::Node::Node(coords coordinates_, Node* parent_)
     G = H = 0;
 }
 
-/*AStar::uint */float AStar::Node::getScore()
+/*AStar::uint*/ float AStar::Node::getScore()
 {
-    //return G + H;
+    return G + H;
     return total;
 }
 /// MSSA obliczanie wag
@@ -159,19 +159,21 @@ AStar::CoordinateList AStar::Generator::findPath(coords source_, coords target_)
             
             //double layer etension
             coords DoubleLayer(current->coordinates + direction[i + 1]);
+            bool DLJump = false;
             if (!(detectCollision(DoubleLayer) ||
                 findNodeOnList(closedSet, DoubleLayer))) {
                 if (heuristic(DoubleLayer, target_) < heuristic(newCoordinates, target_)) {
                     newCoordinates = DoubleLayer;
+                    DLJump = true;
                 }
             }
-
+            
             uint totalCost = current->G;
             Node* successor = findNodeOnList(openSet, newCoordinates);
 
             if (successor == nullptr) {
                 successor = new Node(newCoordinates, current);
-                successor->G = totalCost;
+                successor->G = totalCost+10+ DLJump;
                 successor->H = heuristic(successor->coordinates, target_); 
                 
                 //moze nie byc tutaj
@@ -184,7 +186,7 @@ AStar::CoordinateList AStar::Generator::findPath(coords source_, coords target_)
             }
             else if (totalCost < successor->G) {
                 successor->parent = current;
-                successor->G = totalCost;
+                successor->G = totalCost+10+ DLJump;
             }
         }
         
@@ -193,6 +195,7 @@ AStar::CoordinateList AStar::Generator::findPath(coords source_, coords target_)
     CoordinateList path;
     while (current != nullptr) {
         path.push_back(current->coordinates);
+        std::cout << current->G<<'\n';
         current = current->parent;
     }
 

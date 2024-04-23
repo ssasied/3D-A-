@@ -1,4 +1,4 @@
-/// pozmieniany kod od tego pana:
+/// pozmieniany kod od tego Pana:
 /*
     Copyright (c) 2015, Damian Barczynski <daan.net@wp.eu>
     Following tool is licensed under the terms and conditions of the ISC license.
@@ -15,12 +15,12 @@ namespace AStar
     struct coords
     {
         /// dodany 3 wymiar
-        int x, y,z;
+        int x, y, z;
 
         bool operator == (const coords& coordinates_);
         friend coords operator + (const AStar::coords& left_, const AStar::coords& right_) {
             ///dodany 3 wymiar
-            return{ left_.x + right_.x, left_.y + right_.y ,left_.z+right_.z};
+            return{ left_.x + right_.x, left_.y + right_.y ,left_.z + right_.z };
         }
     };
 
@@ -39,9 +39,9 @@ namespace AStar
         Node* parent;
 
         Node(coords coord_, Node* parent_ = nullptr);
-        
+
         /// zmieniona dla MSSA
-        float /*uint*/ getScore();
+        float/* uint */getScore();
 
         void calcTotal(const float& dst);
     };
@@ -57,13 +57,13 @@ namespace AStar
         float dst;
         std::vector<std::vector<std::vector<bool>>> wallsGrid;
         Generator();
-        
+
         ///zmieniona dla mojego podjescia z wektorem 3 wymiarowym jako przestrzen
         void setWorldSize(coords worldSize_);
 
         /// moja funkcja do ladowania przeszkód z pliku
         void load(std::string fname);
-        
+
         ///wyrzucowa funkcja bo sprawienie aby ona dzialala w 3 wymiarach jest zbyt pracoch³onne
         //void setDiagonalMovement(bool enable_);
 
@@ -82,8 +82,8 @@ namespace AStar
         coords worldSize;
 
         /// ilosc zmieniona dla 3 wymiarow
-        uint directions=12;
-       
+        uint directions = 12;
+
     };
 
     class Heuristic

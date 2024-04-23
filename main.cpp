@@ -12,7 +12,7 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
-#include "MSSA.h"
+#include "source/MSSA.h"
 
 
 int main()
@@ -22,9 +22,9 @@ int main()
     generator.setWorldSize({ size, size, size});
     std::string obstaclesFile = "przeszkody.txt";
     generator.load(obstaclesFile);
-    generator.setHeuristic(AStar::Heuristic::euclidean);
+    generator.setHeuristic(AStar::Heuristic::manhattan);
     std::cout << "Generate path ... \n";
-    auto path = generator.findPath({ 1, 1, 5 }, { 19, 19 ,5 });
+    auto path = generator.findPath({ 1, 3, 0 }, { 1, 19 ,5 });
 
     std::string pathFile = "trasa.txt";
     std::ofstream file(pathFile);
@@ -32,8 +32,6 @@ int main()
         file << coordinate.x << "," << coordinate.y <<"," <<coordinate.z<< "\n";
     }
     file.close();
-
-    /// uruchomienie skryptu wizualizujacego graf
     std::string command = "py displayGraph.py --size "+std::to_string(size)+" "+std::to_string(size) + " "+std::to_string(size) + " " + obstaclesFile + " " + pathFile;
     int returnCode = system(command.c_str());
     if (returnCode != 0) {
